@@ -17,9 +17,9 @@ void quick_sort_actual(int *array, int low, int high, size_t size)
 	if (low >= high)
 		return;
 
-	for (; i <= high; i++)
+	for (; i < high; i++)
 	{
-		if ((array[i] <= pivot) && (i != j))
+		if (array[i] <= pivot)
 		{
 			if (i != j)
 			{
