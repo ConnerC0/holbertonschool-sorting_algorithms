@@ -22,7 +22,8 @@ void insertion_sort_list(listint_t **list)
 			temp2 = nodeCheckerF->next;
 			temp1->next = temp2->next, temp2->prev = temp1->prev;
 			temp1->prev = temp2, temp2->next = temp1;
-			nodeCheckerB->next = temp2;
+			if (nodeCheckerB)
+				nodeCheckerB->next = temp2;
 			if (temp2->prev == NULL)
 				*list = temp2;
 			print_list(*list);
