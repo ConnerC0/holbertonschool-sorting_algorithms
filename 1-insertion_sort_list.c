@@ -10,7 +10,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp1, *temp2, *nodeCheckerF, *nodeCheckerB;
 
-	if (*list == NULL)
+	if (!list)
 		return;
 	nodeCheckerF = *list;
 	while (nodeCheckerF->next)
