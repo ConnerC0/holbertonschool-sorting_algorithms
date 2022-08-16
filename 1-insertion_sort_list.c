@@ -2,13 +2,43 @@
 #include <stddef.h>
 
 /**
+ * swap - sorts linked list in ascending numerical order
+ *
+ * @head: The list to be sorted
+ * @leftNode: first node
+ * @rightNode: second node
+ */
+void swap(listint_t **head, listint_t **leftNode, listint_t **rightNode)
+{
+	listint_t *temp1 = *leftNode, *temp2 = *rightNode;
+	listint_t *previous = NULL, *next = NULL;
+
+	if (temp1->prev)
+	{
+		previous = temp1->prev;
+		previous->next = temp2;
+	}
+	temp2->prev = previous;
+	if (temp2->next)
+	{
+		next = temp2->next;
+		next->prev = temp1;
+	}
+	temp1->next = next;
+	temp2->next = temp1;
+	temp1->prev = temp2;
+	if (*head == temp1)
+		*head = temp2;
+}
+
+/**
  * insertion_sort_list - sorts linked list in ascending numerical order
  *
  * @list: The list to be sorted.
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *temp1, *temp2, *nodeCheckerF, *nodeCheckerB;
+	listint_t *nodeCheckerF, *nodeCheckerB;
 
 	if (!list)
 		return;
@@ -17,35 +47,16 @@ void insertion_sort_list(listint_t **list)
 	{
 		if (nodeCheckerF->n > nodeCheckerF->next->n)
 		{
-			nodeCheckerB = nodeCheckerF->prev;
-			temp1 = nodeCheckerF;
-			temp2 = nodeCheckerF->next;
-			temp1->next = temp2->next, temp2->prev = temp1->prev;
-			temp1->prev = temp2, temp2->next = temp1;
-			if (nodeCheckerB)
-				nodeCheckerB->next = temp2;
-			if (temp2->prev == NULL)
-				*list = temp2;
+			swap(list, &nodeCheckerF, &(nodeCheckerF->next));
 			print_list(*list);
-			while (nodeCheckerB)
+			nodeCheckerB = nodeCheckerF->prev;
+			while (nodeCheckerB->prev && (nodeCheckerB->n < nodeCheckerB->prev->n))
 			{
-				if (nodeCheckerB->n > nodeCheckerB->next->n)
-				{
-					temp1 = nodeCheckerB;
-					temp2 = nodeCheckerB->next;
-					if (temp1->prev)
-						temp1->prev->next = temp2;
-					temp1->next = temp2->next, temp2->prev = temp1->prev;
-					temp1->prev = temp2, temp2->next = temp1;
-					temp1->next->prev = temp1;
-					if (temp2->prev == NULL)
-						*list = temp2;
-					print_list(*list);
-				}
-				nodeCheckerB = nodeCheckerB->prev;
+				swap(list, &(nodeCheckerB->prev), &nodeCheckerB);
+				print_list(*list);
 			}
 			continue;
-		}
-		nodeCheckerF = nodeCheckerF->next;
+		} else
+			nodeCheckerF = nodeCheckerF->next;
 	}
 }
