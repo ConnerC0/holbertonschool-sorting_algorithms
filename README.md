@@ -19,3 +19,13 @@ The Big O notation for best case, average case, and worst case are as follows:
 * O(n)
 * O(n<sup>2</sup>)
 * O(n<sup>2</sup>)
+
+## Selection Sort
+The selection sort algorithm sorts by iterating through the list. With the first two nodes they compare. If the node to the right is less than the node to the left then they will swap. The less than node will then continue to compare itself with all the remaining nodes in the list one by one. If it finds one less then itself it will swap and the new current node will pick up from where the previous node left off and continue comparing. If it can't find a node less then it, it stays in its new position and then the next node will start comparing and this process will continue until the list is sorted.
+
+The Big O notation for best case, average case, and worst case are as follows:
+
+* O(n<sup>2</sup>)
+* O(n<sup>2</sup>)
+* O(n<sup>2</sup>)
+
