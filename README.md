@@ -11,3 +11,11 @@ The Big O notation for best case, average case, and worst case are as follows:
 * O(n)
 * O(n<sup>2</sup>)
 * O(n<sup>2</sup>)
+
+## Insertion Sort
+The insertion sort algorithm sorts by iterating through the list one at a time. Each time it iterates through the array, it will check the previous node's value. If the value is greater than the current node it will swap. If a swap occurs then it will check the previous node again and do so until the value less than or the value is NULL. The sort ends when it makes it to the end of the list and the previous nodes value is less than the current node.
+
+The Big O notation for best case, average case, and worst case are as follows:
+* O(n)
+* O(n<sup>2</sup>)
+* O(n<sup>2</sup>)
