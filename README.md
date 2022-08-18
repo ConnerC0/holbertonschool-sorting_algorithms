@@ -29,3 +29,12 @@ The Big O notation for best case, average case, and worst case are as follows:
 * O(n<sup>2</sup>)
 * O(n<sup>2</sup>)
 
+## Quick Sort
+
+The quick sort algorithm sorts by breaking up an array into smaller ones and swapping the smaller ones, depending on a comparison with the "pivot" element picked. The way it does this is it starts with the head node at the beginning of the array and compares it to the tail node. It continues to decrement from the tail until it finds a value that is less than it. Then the swap occurs and the array gets broken up. It then checks to the left  and continues this process until one side is done then moves to the other side and continues the process there.
+
+The Big O notation for best case, average case, and worst case are as follows:
+
+* O(nlog(n))
+* O(nlog(n))
+* O(n<sup>2</sup>)
