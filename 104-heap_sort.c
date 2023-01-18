@@ -24,31 +24,23 @@ void print_array(const int *array, size_t size)
 }
 
 /**
- * heap_sort - Sorting array using heap sort algorithm
- * @array: Array to be sorted
- * @size: Size of the array
+ * swap - Function that swaps two values
+ *
+ * @a: Fisrt value
+ * @b: Second value
  * Return: 0
  */
-void heap_sort(int *array, size_t size)
+void swap(int *a, int *b)
 {
-	int i;
+	int tmp;
 
-	if (!array || size < 2)
-		return;
-
-	for (i = size / 2; i >= 0; i--)
-		heap(array, size, i, size);
-	for (i = size - 1; i >= 0; i--)
-	{
-		swap(&array[i], &array[0]);
-		if (i != 0)
-			print_array(array, size);
-		heap(array, i, 0, size);
-	}
+	tmp = *b;
+	*b = *a;
+	*a = tmp;
 }
 
 /**
- * heapify - Recursive function to sort binary tree
+ * heap - Recursive function to sort binary tree
  * @array: array to be sorted as binary tree
  * @end: Last node in binary tree
  * @start: First node of binary tree
@@ -79,17 +71,25 @@ void heap(int *array, int end, int start, size_t size)
 }
 
 /**
- * swap - Function that swaps two values
- *
- * @a: Fisrt value
- * @b: Second value
+ * heap_sort - Sorting array using heap sort algorithm
+ * @array: Array to be sorted
+ * @size: Size of the array
  * Return: 0
  */
-void swap(int *a, int *b)
+void heap_sort(int *array, size_t size)
 {
-	int tmp;
+	int i;
 
-	tmp = *b;
-	*b = *a;
-	*a = tmp;
+	if (!array || size < 2)
+		return;
+
+	for (i = size / 2; i >= 0; i--)
+		heap(array, size, i, size);
+	for (i = size - 1; i >= 0; i--)
+	{
+		swap(&array[i], &array[0]);
+		if (i != 0)
+			print_array(array, size);
+		heap(array, i, 0, size);
+	}
 }

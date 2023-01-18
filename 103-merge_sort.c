@@ -24,7 +24,7 @@ void print_array(const int *array, size_t size)
 }
 
 /**
- * _merge_sort - initiate merge sort
+ * _merge - initiate merge sort
  * @array: array to be sorted
  * @temp: temporary array for holding sorted elements
  * @size: size of the array
