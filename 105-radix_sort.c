@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
-* findmax - Finds the maximum value in an array
+* maxVal - Finds the maximum value in an array
 * @array: array to find max value of
 * @size: Size of array
 * Return: Largest value
@@ -43,7 +43,7 @@ void radix_sort(int *array, size_t size)
 }
 
 /**
-* counting_sort_r - sorts array using counting algorithm
+* counting_sort - sorts array using counting algorithm
 * @array: Array to sort
 * @size: Size of array
 * @pos: Digit position value
