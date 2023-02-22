@@ -29,5 +29,8 @@ void quick_sort(int *array, size_t size);
 void merge_sort(int *array, size_t size);
 void print_array(const int *array, size_t size);
 void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
+void counting_sort(int *array, size_t size, int pos, int *out, int *ca);
+int maxVal(int *array, size_t size);
 
 #endif
